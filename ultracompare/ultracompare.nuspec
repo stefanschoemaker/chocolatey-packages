@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>ultracompare</id>
+    <version>24.1.0.5</version>
+    <packageSourceUrl>https://github.com/stefanschoemaker/chocolatey-packages/tree/master/ultracompare</packageSourceUrl>
+    <owners>stefanschoemaker</owners>
+    <authors>Stefan Schoemaker</authors>
+    <title>UltraCompare (Install)</title>
+    <projectUrl>https://www.ultraedit.com/downloads/ultracompare-download-thank-you/#</projectUrl>
+    <iconUrl>https://www.ultraedit.com/wp-content/uploads/2023/01/UC_logo_icon_white.png</iconUrl>
+    <copyright>2025 Idera Inc.</copyright>
+    <licenseUrl>https://www.ideracorp.com/legal/UltraEdit</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <tags>ultracompare</tags>
+    <summary>The Ultimate Text, File, and Folder Comparison Tool</summary>
+    <description>The Ultimate Text, File, and Folder Comparison Tool</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
