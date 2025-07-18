@@ -62,7 +62,7 @@ jobs:
       with:
         args: pack ./ultracompare/ultracompare.nuspec
 
-    - name: Chocolatey push (what-if)
+    - name: Chocolatey push
       if: env.changed == 'true'
       uses: crazy-max/ghaction-chocolatey@v3
       with:
