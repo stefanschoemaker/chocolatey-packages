@@ -57,19 +57,13 @@ jobs:
         git push
 
     - name: Pack Chocolatey package
+      if: env.changed == 'true'
       uses: crazy-max/ghaction-chocolatey@v3
       with:
         args: pack ./ultracompare/ultracompare.nuspec
 
     - name: Chocolatey push (what-if)
       if: env.changed == 'true'
-      uses: crazy-max/ghaction-chocolatey@v3
-      with:
-        args: >
-          push ultracompare/ultracompare.*.nupkg --source https://push.chocolatey.org/ --api-key ${{ secrets.CHOCOLATEY_API_KEY }} --what-if
-
-    - name: Chocolatey push (real)
-      if: env.changed == 'true' && github.event_name == 'workflow_dispatch'
       uses: crazy-max/ghaction-chocolatey@v3
       with:
         args: >
