@@ -2,7 +2,7 @@ name: Update UltraCompare Chocolatey Package
 
 on:
   schedule:
-  - cron: '0 2 * * *'
+  - cron: '0 2 * * 1'
   workflow_dispatch:
 
 
@@ -33,12 +33,18 @@ jobs:
 
     - name: Detect if package changed
       id: detect
+      shell: pwsh
       run: |
-        if git diff --quiet; then
-          echo "changed=false" >> $GITHUB_ENV
-        else
-          echo "changed=true" >> $GITHUB_ENV
-        fi
+        # Run git diff quietly and check the exit code
+        git diff --quiet
+        if ($LASTEXITCODE -eq 0) {
+          Write-Output "No changes detected"
+          # Export a GitHub Actions ENV var
+          "changed=false" | Out-File -Encoding utf8 -Append $env:GITHUB_ENV
+        } else {
+          Write-Output "Changes detected"
+          "changed=true" | Out-File -Encoding utf8 -Append $env:GITHUB_ENV
+        }
 
     - name: Commit version bump
       if: env.changed == 'true'
